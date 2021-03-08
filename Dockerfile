@@ -47,4 +47,11 @@ COPY --from=builder /workdir/screenshotjenkinsplugin/target/screenshot.hpi /usr/
 COPY --from=builder /workdir/UpdatePngToDBJenkinsPlugin/target/progeduDB.hpi /usr/share/jenkins/ref/plugins/progeduDB.jpi
 COPY --from=builder /workdir/AndroidScreenshotPlugin/target/android-screenshot.hpi /usr/share/jenkins/ref/plugins/android-screenshot.jpi
 
+###########################################################################
+# Install Nodejs:
+###########################################################################
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+	&& \
+	apt-get update && apt-get install -y --no-install-recommends \
+	nodejs
